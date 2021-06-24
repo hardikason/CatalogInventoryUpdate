@@ -47,7 +47,7 @@ class CatalogInventoryImport
     public function execute()
     {
         try {
-
+            $this->_configHelper->writeLog('-------------------');    
             $isCronEnabled = $this->_configHelper
                 ->getConfigValue(self::IMPORT_ENABLE);
             // Check if cron enabled
@@ -56,7 +56,7 @@ class CatalogInventoryImport
                 return $this;
             }
             // call model function to import csv for update qty
-            $this->_configHelper->writeLog('-------------------');
+            
             $this->_configHelper->writeLog('Import Cron started to execute.');
             $this->_catalogInventoryImportModel->importCatalogInventory();
             $this->_configHelper->writeLog('Import Cron has been successfully executed.');
